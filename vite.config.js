@@ -1,6 +1,5 @@
-// vite.config.js
 import { defineConfig } from 'vite';
-import { sync as globSync } from 'glob'; // Виправлення імпорту
+import { sync as globSync } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
@@ -12,7 +11,7 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       sourcemap: true,
-
+      base: '/energy-storage-system/',
       rollupOptions: {
         input: globSync('./src/*.html'),
         output: {

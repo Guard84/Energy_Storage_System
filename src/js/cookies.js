@@ -3,19 +3,18 @@ window.addEventListener('load', () => {
     const acceptBtn = document.querySelector('.accept-btn');
     const declineBtn = document.querySelector('.decline-btn');
   
-    // Перевірка наявності cookieConsent у localStorage
     if (!localStorage.getItem('cookieConsent')) {
-      modal.style.display = 'block'; // Відображення модалки
+      modal.style.display = 'block';
     }
   
     acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'accepted'); // Збереження вибору
-      modal.style.display = 'none'; // Сховати модалку
+      localStorage.setItem('cookieConsent', 'accepted');
+      modal.style.display = 'none';
     });
   
     declineBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'declined'); // Збереження вибору
-      modal.style.display = 'none'; // Сховати модалку
+      localStorage.setItem('cookieConsent', 'declined');
+      modal.style.display = 'none';
     });
   });
   
