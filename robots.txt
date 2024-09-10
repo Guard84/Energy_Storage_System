@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /privacy-policy
+Disallow: /cookie-policy
+Disallow: /success.html
+
+Sitemap: https://antyvtoma.com/sitemap.xml
