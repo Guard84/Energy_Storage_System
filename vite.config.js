@@ -11,7 +11,7 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       sourcemap: true,
-      base: '/energy-storage-system/',
+      base: '/energy_storage_system/',
       rollupOptions: {
         input: globSync('./src/*.html'),
         output: {
