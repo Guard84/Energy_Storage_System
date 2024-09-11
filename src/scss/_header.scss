@@ -1,0 +1,167 @@
+.header {
+  position: relative;
+  background: #333;
+  color: #fff;
+  padding: 20px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    p {
+        font-weight: 900;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: right 0.3s ease, opacity 0.3s ease;
+    z-index: 1500;
+
+    &.nav-menu-open {
+      right: 0;
+      opacity: 1;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin: 15px 0;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 18px;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #94f0b0;
+          }
+        }
+      }
+    }
+  }
+
+  &__search {
+    display: none;
+    align-items: center;
+
+    input {
+      padding: 5px;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+    }
+  }
+
+  &__contacts {
+    display: none;
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+  }
+
+  // Бургер-меню
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 2000;
+    position: relative;
+
+    .burger-icon {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      position: relative;
+    }
+
+    &.active .burger-icon:nth-child(1) {
+      transform: rotate(45deg) translate(13px, 5px);
+    }
+
+    &.active .burger-icon:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.active .burger-icon:nth-child(3) {
+      transform: rotate(-45deg) translate(13px, -5px);
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+// Desktop styles (min-width)
+@media (min-width: 769px) {
+  .header__burger {
+    display: none;
+  }
+
+  .header__nav {
+    position: static;
+    display: flex;
+    gap: 10px;
+    opacity: 1;
+    right: auto;
+    height: auto;
+    background: none;
+
+    ul {
+      display: flex;
+      gap: 12px;
+    }
+  }
+
+  .header__contacts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .overlay {
+    display: none;
+  }
+}

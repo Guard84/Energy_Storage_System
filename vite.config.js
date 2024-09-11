@@ -8,12 +8,15 @@ export default defineConfig(({ command }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    root: 'src',
+    root: '.',
     build: {
       sourcemap: true,
-      base: '/energy_storage_system/',
+      base: '/',
       rollupOptions: {
-        input: globSync('./src/*.html'),
+        input: {
+          main: './index.html',
+          other: globSync('./src/*.html'),
+        },
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
@@ -25,6 +28,6 @@ export default defineConfig(({ command }) => {
       },
       outDir: 'dist',
     },
-    plugins: [injectHTML(), FullReload(['./src/**/*.html'])],
+    plugins: [injectHTML(), FullReload(['./*.html', './src/**/*.html'])],
   };
 });

@@ -11,49 +11,64 @@
       name="description"
       content="Energy Storage System - оптові поставки автономних енергосистем для бізнесу та підприємств. Ми пропонуємо широкий асортимент надійних рішень для забезпечення безперебійного електропостачання."
     />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="./scss/main.scss" />
+    <link rel="stylesheet" href="./src/scss/main.scss" />
     <title>Energy Storage System</title>
   </head>
   <body>
-    <load src="./partials/header.html" />
+    <load src="./src/partials/header.html" />
     <main>
-      <section>
-        <div>
+      <section class="hero-banner">
+        <div class="hero-content">
           <h1>Автономні енергосистеми</h1>
           <p>оптові поставки для бізнесу та підприємств</p>
-          <a href="./pages/catalog.html" class="button-link">Вибрати енергосистему</a>
+          <a href="./pages/catalog.html" class="button-link"
+            >Вибрати енергосистему</a
+          >
         </div>
       </section>
 
       <section>
         <div>
-          <h2>Корисні статті</h2>
+          <h2 class="articles_title">Корисні статті</h2>
           <div class="articles">
             <div class="article">
-              <img src="./images/article1.jpg" alt="Вибір енергосистеми" />
+              <img
+                src="/images/energosystem_article.png"
+                alt="Вибір енергосистеми"
+              />
               <h3>Як вибрати правильну енергосистему для вашого бізнесу</h3>
-              <a href="./blog/article1.html" target="_blank" class="read-btn"
+              <a
+                href="./src/blog/article1.html"
+                target="_blank"
+                class="read-btn"
                 >Читати</a
               >
             </div>
             <div class="article">
               <img
-                src="./images/article2.jpg"
+                src="/images/diesel_article.jpg"
                 alt="Переваги дизельних генераторів"
               />
               <h3>Переваги дизельних генераторів в автономних системах</h3>
-              <a href="./blog/article2.html" target="_blank" class="read-btn"
+              <a
+                href="./src/blog/article2.html"
+                target="_blank"
+                class="read-btn"
                 >Читати</a
               >
             </div>
             <div class="article">
               <img
-                src="./images/article3.jpg"
+                src="./public/images/invest_article.jpg"
                 alt="Інвестиції в надійні енергосистеми"
               />
-              <h3>Чому важливо інвестувати в надійні енергосистеми</h3>
-              <a href="./blog/article3.html" target="_blank" class="read-btn"
+              <h3>
+                Чому важливо інвестувати в надійні та сучасні енергосистеми
+              </h3>
+              <a
+                href="./src/blog/article3.html"
+                target="_blank"
+                class="read-btn"
                 >Читати</a
               >
             </div>
@@ -90,7 +105,6 @@
         </div>
       </section>
     </main>
-    <load src="./partials/footer.html" />
-    <!-- <script type="module" src="../js/main.js"></script> -->
+    <load src="./src/partials/footer.html" />
   </body>
 </html>
