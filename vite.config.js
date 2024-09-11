@@ -3,31 +3,30 @@ import { sync as globSync } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
-export default defineConfig(({ command }) => {
-  return {
-    define: {
-      [command === 'serve' ? 'global' : '_global']: {},
-    },
-    root: '.',
-    build: {
-      sourcemap: true,
-      base: '/',
-      rollupOptions: {
-        input: {
-          main: './index.html',
-          other: globSync('./src/*.html'),
-        },
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          },
-          entryFileNames: 'commonHelpers.js',
-        },
+export default defineConfig({
+  root: '.',
+  build: {
+    sourcemap: true,
+    base: '/',
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        ...globSync('./src/*.html').reduce((acc, file) => {
+          const key = file.replace(/^.*[\\/]/, '').replace('.html', '');
+          acc[key] = file;
+          return acc;
+        }, {}),
       },
-      outDir: 'dist',
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+        entryFileNames: 'commonHelpers.js',
+      },
     },
-    plugins: [injectHTML(), FullReload(['./*.html', './src/**/*.html'])],
-  };
+    outDir: 'dist',
+  },
+  plugins: [injectHTML(), FullReload(['./*.html', './src/**/*.html'])],
 });
