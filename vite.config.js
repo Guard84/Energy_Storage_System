@@ -10,10 +10,32 @@ export default defineConfig({
     base: '/',
     rollupOptions: {
       input: {
+        // Головний HTML файл
         main: './index.html',
-        ...globSync('./src/*.html').reduce((acc, file) => {
-          const key = file.replace(/^.*[\\/]/, '').replace('.html', '');
-          acc[key] = file;
+        ...globSync('./src/pages/**/*.html').reduce((acc, file) => {
+          const key = file.replace(/^.*[\\/]/, '');
+          acc[`pages/${key}`] = file;
+          return acc;
+        }, {}),
+        ...globSync('./src/blog/**/*.html').reduce((acc, file) => {
+          const key = file.replace(/^.*[\\/]/, '');
+          acc[`blog/article/${key}`] = file;
+          return acc;
+        }, {}),
+        // Додайте інші папки за потребою
+        ...globSync('./src/partials/**/*.html').reduce((acc, file) => {
+          const key = file.replace(/^.*[\\/]/, '');
+          acc[`partials/${key}`] = file;
+          return acc;
+        }, {}),
+        ...globSync('./src/products/**/*.html').reduce((acc, file) => {
+          const key = file.replace(/^.*[\\/]/, '');
+          acc[`products/${key}`] = file;
+          return acc;
+        }, {}),
+        ...globSync('./src/politics/**/*.html').reduce((acc, file) => {
+          const key = file.replace(/^.*[\\/]/, '');
+          acc[`politics/${key}`] = file;
           return acc;
         }, {}),
       },
@@ -28,5 +50,11 @@ export default defineConfig({
     },
     outDir: 'dist',
   },
-  plugins: [injectHTML(), FullReload(['./*.html', './src/**/*.html'])],
+  plugins: [injectHTML(), FullReload([
+    './src/pages/**/*.html',
+    './src/blog/**/*.html',
+    './src/partials/**/*.html',
+    './src/products/**/*.html',
+    './src/politics/**/*.html'
+  ])],
 });
