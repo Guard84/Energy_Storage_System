@@ -1,0 +1,78 @@
+/* Мобільні стилі */
+.catalog-main {
+    padding: 20px;
+  }
+  
+  .catalog-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .catalog-section {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .catalog-container {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .catalog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .catalog-item {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .catalog-link {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    text-align: center;
+    
+    &:hover {
+      background: #fff;
+      border-color: #bbb;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  /* Десктопні стилі */
+  @media (min-width: 769px) {
+    .catalog-main {
+      padding: 40px;
+    }
+  
+    .catalog-container {
+      max-width: 1200px;
+      height: 200px;
+    }
+  
+    .catalog-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+  
+    .catalog-item {
+      flex: 1 1 calc(33.333% - 20px);
+      min-width: 250px;
+    }
+  }
+  
