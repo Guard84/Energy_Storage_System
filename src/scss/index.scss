@@ -1,6 +1,8 @@
 @import "../scss/_variables.scss";
+
 .hero-banner {
-  background: url("../../public/images/hero-img.jpg") no-repeat center center/cover;
+  background: url("../../public/images/hero-img.jpg") no-repeat center
+    center/cover;
   color: #fff;
   text-align: center;
   padding: 50px 20px;
@@ -37,7 +39,6 @@
   }
 }
 
-// Статті
 .articles_title {
   margin-bottom: 20px;
   padding-left: 20px;
@@ -84,7 +85,6 @@
   }
 }
 
-// Про нас
 .about-us {
   display: flex;
   flex-direction: column;
@@ -129,8 +129,7 @@
   }
 }
 
-// Медіа-запити для десктопу
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
   .hero-banner {
     padding: 60px 40px;
     height: 430px;
