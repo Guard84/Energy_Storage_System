@@ -21,47 +21,60 @@
   </head>
   <body page-article>
     <load src="../partials/header.html" />
-    <main>
-      <div>
-        <h1>Цікаві статті</h1>
-        <article>
-          <h2>Як вибрати правильну енергосистему для вашого бізнесу</h2>
-          <p>
+    <main class="blog">
+      <div class="blog__container">
+        <h1 class="blog__title">Цікаві статті</h1>
+
+        <article class="blog__article">
+          <h2 class="blog__article-title">
+            Як вибрати правильну енергосистему для вашого бізнесу
+          </h2>
+          <p class="blog__article-text">
             В умовах сучасного бізнес-середовища забезпечення безперервного
-            електропостачання є критично важливим для функціонування будь-якої
-            компанії. Ненадійне електропостачання може призвести до значних
-            фінансових втрат, збоїв у роботі та шкоди репутації. Вибір
-            правильної енергосистеми для вашого бізнесу - це інвестиція в
-            стабільність і ефективність вашої діяльності...
+            електропостачання...
           </p>
-          <a href="../blog/article1.html">Читати далі</a>
+          <a href="../blog/article1.html" class="blog__article-link"
+            >Читати далі</a
+          >
         </article>
-        <article>
-          <h2>Переваги дизельних генераторів в автономних системах</h2>
-          <p>
-            Дизельні генератори відомі своєю надійністю та довговічністю.
-            Завдяки використанню дизельного палива, ці пристрої працюють
-            стабільно навіть при високих навантаженнях та в умовах важкої
-            експлуатації. Це робить їх ідеальним вибором для підприємств, які
-            потребують постійного джерела живлення без ризику зупинки
-            обладнання...
+
+        <article class="blog__article">
+          <h2 class="blog__article-title">
+            Переваги дизельних генераторів в автономних системах
+          </h2>
+          <p class="blog__article-text">
+            Дизельні генератори відомі своєю надійністю та довговічністю...
           </p>
-          <a href="../blog/article2.html">Читати далі</a>
+          <a href="../blog/article2.html" class="blog__article-link"
+            >Читати далі</a
+          >
         </article>
-        <article>
-          <h2>Чому важливо інвестувати в надійні енергосистеми</h2>
-          <p>
+
+        <article class="blog__article">
+          <h2 class="blog__article-title">
+            Чому важливо інвестувати в надійні енергосистеми
+          </h2>
+          <p class="blog__article-text">
             Надійна енергосистема гарантує безперервну роботу виробничих
-            процесів та обладнання. Відсутність електрики може призвести до
-            зупинки обладнання, втрати матеріалів та значних фінансових збитків.
-            З надійною енергосистемою ви можете бути впевнені, що ваше
-            підприємство буде працювати стабільно навіть під час аварій на
-            основній мережі...
+            процесів та обладнання...
           </p>
-          <a href="../blog/article3.html">Читати далі</a>
+          <a href="../blog/article3.html" class="blog__article-link"
+            >Читати далі</a
+          >
         </article>
       </div>
     </main>
     <load src="../partials/footer.html" />
+    <script>
+      fetch('/schema.json')
+        .then(response => response.json())
+        .then(data => {
+          const script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.textContent = JSON.stringify(data);
+          document.head.appendChild(script);
+        })
+        .catch(error => console.error('Error loading schema:', error));
+    </script>
   </body>
 </html>

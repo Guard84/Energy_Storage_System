@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       setTimeout(() => {
-        window.location.href = "./success.html";
+        const base = window.location.origin;
+        window.location.href = `${base}/success.html`;
       }, 100);
     });
   }

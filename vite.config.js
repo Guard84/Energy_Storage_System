@@ -10,7 +10,6 @@ export default defineConfig({
     base: '/',
     rollupOptions: {
       input: {
-        // Головний HTML файл
         main: './index.html',
         ...globSync('./src/pages/**/*.html').reduce((acc, file) => {
           const key = file.replace(/^.*[\\/]/, '');
@@ -22,7 +21,6 @@ export default defineConfig({
           acc[`blog/article/${key}`] = file;
           return acc;
         }, {}),
-        // Додайте інші папки за потребою
         ...globSync('./src/partials/**/*.html').reduce((acc, file) => {
           const key = file.replace(/^.*[\\/]/, '');
           acc[`partials/${key}`] = file;
@@ -40,12 +38,14 @@ export default defineConfig({
         }, {}),
       },
       output: {
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]',
         manualChunks(id) {
           if (id.includes('node_modules')) {
             return 'vendor';
           }
         },
-        entryFileNames: 'commonHelpers.js',
       },
     },
     outDir: 'dist',

@@ -21,47 +21,62 @@
   </head>
   <body>
     <load src="../partials/header.html" />
-    <main>
-      <section>
-        <h1>Чому саме ми</h1>
+    <main class="about">
+      <section class="about__container">
+        <h1 class="about__title">Чому саме ми</h1>
         <div>
-          <h2>Energy Storage System</h2>
-          <p>
-            <span>Energy Storage System</span> – ваш надійний партнер у сфері
-            оптових продажів автономних енергосистем для бізнесу та підприємств.
-            Наша компанія спеціалізується на постачанні високоякісних
-            енергетичних рішень, які забезпечують безперебійну роботу вашого
-            бізнесу в будь-яких умовах.
+          <h2 class="about__section-title">Energy Storage System</h2>
+          <p class="about__paragraph">
+            <span class="about__paragraph--highlight"
+              >Energy Storage System</span
+            >
+            – ваш надійний партнер у сфері оптових продажів автономних
+            енергосистем для бізнесу та підприємств. Наша компанія
+            спеціалізується на постачанні високоякісних енергетичних рішень, які
+            забезпечують безперебійну роботу вашого бізнесу в будь-яких умовах.
           </p>
-          <p>
+          <p class="about__paragraph">
             Ми прагнемо надати тільки найкращі продукти, відповідаючи вимогам
             найсучасніших технологій і стандартів якості. Наш асортимент включає
             широкий вибір автономних енергосистем, які підходять для різних
             типів підприємств і забезпечують надійне джерело енергії у будь-який
             час.
           </p>
-          <p>
+          <p class="about__paragraph">
             <strong>Energy Storage System</strong> працює виключно в сегменті
             оптових продажів, що дозволяє нам пропонувати нашим клієнтам
             конкурентні ціни і гнучкі умови співпраці. Ми приділяємо особливу
             увагу кожному клієнту, адаптуючи наші пропозиції відповідно до
             специфічних потреб та вимог вашого бізнесу.
           </p>
-          <p>
+          <p class="about__paragraph">
             Наші фахівці мають багаторічний досвід у сфері енергетики і завжди
             готові надати професійні консультації, щоб допомогти вам знайти
             оптимальне рішення для вашого підприємства. Ми горді тим, що можемо
             допомогти вам забезпечити стабільність та ефективність вашого
             бізнесу за допомогою наших високоякісних автономних енергосистем.
           </p>
-          <p>
-            Обираючи <span>Energy Storage System</span>, ви отримуєте надійного
-            партнера, який ставить вашу потребу у безперебійній енергетичній
-            підтримці на перше місце.
+          <p class="about__paragraph">
+            Обираючи
+            <span class="about__paragraph--highlight"
+              >Energy Storage System</span
+            >, ви отримуєте надійного партнера, який ставить вашу потребу у
+            безперебійній енергетичній підтримці на перше місце.
           </p>
         </div>
       </section>
     </main>
     <load src="../partials/footer.html" />
+    <script>
+      fetch('/schema.json')
+        .then(response => response.json())
+        .then(data => {
+          const script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.textContent = JSON.stringify(data);
+          document.head.appendChild(script);
+        })
+        .catch(error => console.error('Error loading schema:', error));
+    </script>
   </body>
 </html>

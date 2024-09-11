@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Energy Storage System",
+  "url": "https://antyvtoma.com/",
+  "description": "Energy Storage System - оптові поставки автономних енергосистем для бізнесу та підприємств. Ми пропонуємо широкий асортимент надійних рішень для забезпечення безперебійного електропостачання.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+380503813542",
+    "email": "information@antyvtoma.com"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "вул. Промислова 5",
+    "addressLocality": "Вишневе",
+    "addressRegion": "Київська область",
+    "postalCode": "08132",
+    "addressCountry": "UA"
+  }
+}
